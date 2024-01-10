@@ -50,7 +50,7 @@ value.converter.interceptors=com.tiki.lakehouse.kafka.connect.converter.intercep
     "jcoType": "JCoBCDType",
     "length": "7",
     "decimals": "3",
-    "connect.decimal.precision": "3"
+    "connect.decimal.precision": "7"
   }
   ```    
-  by cloning the property ``decimals``
+  by cloning the property ``length``

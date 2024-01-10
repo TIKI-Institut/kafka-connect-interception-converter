@@ -6,7 +6,7 @@ import org.apache.kafka.connect.data.Schema;
 
 public class InitConnectDecimalFix extends BaseInterceptor {
 
-    public static final String INIT_CONNECT_PRECISION_PROP = "decimals";
+    public static final String INIT_CONNECT_PRECISION_PROP = "length";
     static final String CONNECT_AVRO_DECIMAL_PRECISION_PROP = "connect.decimal.precision";
 
     @Override

@@ -17,7 +17,8 @@ public class InitConnectDecimalFixTest {
                 .name("org.apache.kafka.connect.data.Decimal")
                 .version(1)
                 .parameter("scale", "3")
-                .parameter("decimals", "5");
+                .parameter("decimals", "3")
+                .parameter("length", "5");
     }
 
     @Test
@@ -28,7 +29,8 @@ public class InitConnectDecimalFixTest {
 
         Map<String,String> expectedParameters = new HashMap<>();
         expectedParameters.put("scale", "3");
-        expectedParameters.put("decimals", "5");
+        expectedParameters.put("decimals", "3");
+        expectedParameters.put("length", "5");
         expectedParameters.put("connect.decimal.precision", "5");
 
         assertEquals(expectedParameters, resultSchema.parameters());
@@ -43,7 +45,8 @@ public class InitConnectDecimalFixTest {
 
         Map<String,String> expectedParameters = new HashMap<>();
         expectedParameters.put("scale", "3");
-        expectedParameters.put("decimals", "5");
+        expectedParameters.put("decimals", "3");
+        expectedParameters.put("length", "5");
 
         assertEquals(expectedParameters, resultSchema.parameters());
     }
@@ -56,7 +59,8 @@ public class InitConnectDecimalFixTest {
 
         Map<String,String> expectedParameters = new HashMap<>();
         expectedParameters.put("scale", "3");
-        expectedParameters.put("decimals", "5");
+        expectedParameters.put("decimals", "3");
+        expectedParameters.put("length", "5");
         expectedParameters.put("connect.decimal.precision", "foo-bar");
 
         assertEquals(expectedParameters, resultSchema.parameters());
