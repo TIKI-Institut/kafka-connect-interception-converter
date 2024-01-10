@@ -32,29 +32,16 @@
   <properties>
     <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
-    <apache.connect.version>5.5.15</apache.connect.version>
+    <connect.version>3.5.2</connect.version>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>org.apache.kafka</groupId>
       <artifactId>connect-api</artifactId>
-      <version>${apache.connect.version}-ccs</version>
+      <version>${connect.version}</version>
       <scope>provided</scope>
     </dependency>
-    <dependency>
-      <groupId>io.confluent</groupId>
-      <artifactId>kafka-avro-serializer</artifactId>
-      <version>${apache.connect.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.confluent</groupId>
-      <artifactId>kafka-connect-avro-converter</artifactId>
-      <version>${apache.connect.version}</version>
-      <scope>provided</scope>
-    </dependency>
-
 
     <dependency>
       <groupId>junit</groupId>

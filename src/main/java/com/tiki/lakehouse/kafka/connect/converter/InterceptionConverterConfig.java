@@ -1,7 +1,7 @@
 package com.tiki.lakehouse.kafka.connect.converter;
 
-import io.confluent.common.config.AbstractConfig;
-import io.confluent.common.config.ConfigDef;
+import org.apache.kafka.common.config.AbstractConfig;
+import org.apache.kafka.common.config.ConfigDef;
 import org.apache.kafka.connect.storage.Converter;
 
 import java.util.Collections;

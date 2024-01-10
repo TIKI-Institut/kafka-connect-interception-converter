@@ -59,7 +59,7 @@ public class BaseInterceptorTest {
     @Test
     public void testDefaultValueCloning() {
         interceptor.cloneSchema(SchemaBuilder.type(Schema.Type.INT8).defaultValue(Byte.valueOf((byte)4)).build(), s -> {
-            assertEquals(Byte.valueOf((byte)4), s.defaultValue());
+            assertEquals((byte) 4, s.defaultValue());
             return s;
         });
     }
@@ -75,7 +75,7 @@ public class BaseInterceptorTest {
     @Test
     public void testVersionCloning() {
         interceptor.cloneSchema(SchemaBuilder.type(Schema.Type.INT8).version(8).build(), s -> {
-            assertEquals(new Integer(8), s.version());
+            assertEquals(Integer.valueOf(8), s.version());
             return s;
         });
     }

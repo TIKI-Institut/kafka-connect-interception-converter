@@ -1,6 +1,6 @@
 package com.tiki.lakehouse.kafka.connect.converter;
 
-import io.confluent.common.config.ConfigException;
+import org.apache.kafka.common.config.ConfigException;
 import org.apache.kafka.connect.data.ConnectSchema;
 import org.apache.kafka.connect.data.Schema;
 import org.junit.Test;

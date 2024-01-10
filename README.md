@@ -1,10 +1,10 @@
 
 # Interception Kafka Connect Converter
 
-This repo allows a user to reference an existing Kafka Connect Converter and inject one or more interceptors to alter the 
-connect Schema before the conversion is performed.
+This repo allows a user to reference an existing Kafka Connect converter and inject one or more interceptors to alter the 
+connect schema before the conversion is performed.
 
-This Class is aligned with the confluent convertor configuration. 
+Note: This example uses the confluent AvroConverter, which needs to exist in the classpath on its own. This project doesn't provide this dependency.
 
 i.e. 
 ```
