@@ -14,7 +14,7 @@
   <name>kafka-connect-interception-converter</name>
 
   <groupId>com.tiki</groupId>
-  <version>0.1</version>
+  <version>0.2</version>
   <url>https://tiki-institut.com/</url>
   <packaging>jar</packaging>
 
