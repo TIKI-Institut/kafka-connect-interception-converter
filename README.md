@@ -22,7 +22,7 @@ value.converter.wrapped.class: io.confluent.connect.avro.AvroConverter
 value.converter.wrapped.config.enhanced.avro.schema.support: false
 value.converter.wrapped.config.schema.registry.url: http://schema-registry.strimzi.svc.cluster.local:8081
 value.converter.wrapped.config.schemas.enable: "true"
-value.converter.interceptors=com.tiki.lakehouse.kafka.connect.converter.interceptors.InitConnectDecimalFix
+value.converter.interceptors: com.tiki.lakehouse.kafka.connect.converter.interceptors.InitConnectDecimalFix
 ```
 
 ## Interceptors
