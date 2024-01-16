@@ -2,6 +2,8 @@ package com.tiki.lakehouse.kafka.connect.converter;
 
 import org.apache.kafka.common.config.AbstractConfig;
 import org.apache.kafka.common.config.ConfigDef;
+import org.apache.kafka.connect.runtime.isolation.LoaderSwap;
+import org.apache.kafka.connect.runtime.isolation.Plugins;
 import org.apache.kafka.connect.storage.Converter;
 
 import java.util.Collections;
@@ -15,7 +17,15 @@ public class InterceptionConverterConfig extends AbstractConfig {
 
     public Converter wrappedConfiguredConverterInstance(Boolean isKey) {
         var result = this.getConfiguredInstance(WRAPPED_CONVERTER_CLASS_CONFIG, Converter.class);
-        result.configure(this.originalsWithPrefix(WRAPPED_CONVERTER_CLASS_CONFIG_PREFIX), isKey);
+
+        // we need to initialize the wrapped converter configuration with the correct PluginClassloader
+        // we get the correct PluginClassloader by the initialized Converter instance
+        // see Plugins.withClassLoader for an example
+        ClassLoader savedLoader = Plugins.compareAndSwapLoaders(result.getClass().getClassLoader());
+        try (LoaderSwap ignored = new LoaderSwap(savedLoader)) {
+            result.configure(this.originalsWithPrefix(WRAPPED_CONVERTER_CLASS_CONFIG_PREFIX), isKey);
+        }
+
         return result;
     }
 
