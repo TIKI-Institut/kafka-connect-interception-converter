@@ -4,7 +4,7 @@ import org.apache.kafka.connect.data.Field;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.data.SchemaBuilder;
 
-import java.util.Comparator;
+import java.util.*;
 import java.util.function.Function;
 
 public abstract class BaseInterceptor implements Interceptor {
@@ -15,9 +15,12 @@ public abstract class BaseInterceptor implements Interceptor {
         SchemaBuilder builder;
         switch (schema.type()) {
             case STRUCT:
-                builder = new SchemaBuilder(Schema.Type.STRUCT);
-                var structFields = schema.fields();
-                if (!structFields.isEmpty()) {
+                builder = SchemaBuilder.struct();
+
+                if (!schema.fields().isEmpty()) {
+                    // in case of unmodifiable list make a copy
+                    ArrayList<Field> structFields = new ArrayList<>(schema.fields());
+
                     structFields.sort(Comparator.comparingInt(Field::index));
                     for (var f : structFields) {
                         builder.field(f.name(), f.schema());

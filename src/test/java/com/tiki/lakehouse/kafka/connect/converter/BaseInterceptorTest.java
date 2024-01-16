@@ -30,10 +30,13 @@ public class BaseInterceptorTest {
 
             switch (type) {
                 case MAP:
-                    sourceSchema = SchemaBuilder.map(Schema.INT32_SCHEMA, Schema.STRING_SCHEMA);
+                    sourceSchema = SchemaBuilder.map(Schema.INT32_SCHEMA, Schema.STRING_SCHEMA).build();
                     break;
                 case ARRAY:
-                    sourceSchema = SchemaBuilder.array(Schema.STRING_SCHEMA);
+                    sourceSchema = SchemaBuilder.array(Schema.STRING_SCHEMA).build();
+                    break;
+                case STRUCT:
+                    sourceSchema = SchemaBuilder.struct().field("foo", Schema.STRING_SCHEMA).build();
                     break;
                 default:
                     sourceSchema = SchemaBuilder.type(type).build();
